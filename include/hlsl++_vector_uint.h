@@ -326,6 +326,8 @@ namespace hlslpp
 		
 		template<int X, int Y> hlslpp_inline uint2(const uswizzle2<X, Y>& s) : vec(s.template swizzle<X, Y, 0, 1>()) {}
 
+		explicit hlslpp_inline uint2(const int2& i) { u32[0] = i.i32[0]; u32[1] = i.i32[1]; }
+
 		union
 		{
 			n128u vec;
@@ -596,10 +598,12 @@ namespace hlslpp
 	hlslpp_inline uint4 operator >= (const uint4& i1, const uint4& i2) { return uint4(_hlslpp_cmpge1_epu32(i1.vec, i2.vec)); }
 	
 	hlslpp_inline uint1 operator < (const uint1& i1, const uint1& i2) { return uint1(_hlslpp_cmplt1_epu32(i1.vec, i2.vec)); }
-	hlslpp_inline uint1 operator < (const uint1& i1, const int& i2)   { return i1 < uint1(i2); }
 	hlslpp_inline uint2 operator < (const uint2& i1, const uint2& i2) { return uint2(_hlslpp_cmplt1_epu32(i1.vec, i2.vec)); }
 	hlslpp_inline uint3 operator < (const uint3& i1, const uint3& i2) { return uint3(_hlslpp_cmplt1_epu32(i1.vec, i2.vec)); }
 	hlslpp_inline uint4 operator < (const uint4& i1, const uint4& i2) { return uint4(_hlslpp_cmplt1_epu32(i1.vec, i2.vec)); }
+
+	hlslpp_inline uint1 operator < (const uint1& i1, const int& i2)   { return i1 < uint1(i2); }
+	hlslpp_inline uint2 operator < (const uint2& i1, const int2& i2)  { return i1 < uint2(i2); }
 	
 	hlslpp_inline uint1 operator <= (const uint1& i1, const uint1& i2) { return uint1(_hlslpp_cmple1_epu32(i1.vec, i2.vec)); }
 	hlslpp_inline uint2 operator <= (const uint2& i1, const uint2& i2) { return uint2(_hlslpp_cmple1_epu32(i1.vec, i2.vec)); }

@@ -792,8 +792,6 @@ namespace hlslpp
 
 		hlslpp_inline float2(const FVector2D& fv) { f32[0] = fv.X; f32[1] = fv.Y; }
 
-		hlslpp_inline float2(const FIntPoint& fv) { f32[0] = fv.X; f32[1] = fv.Y; }
-
 		union
 		{
 			n128 vec;
@@ -1041,6 +1039,9 @@ namespace hlslpp
 	template<typename T> hlslpp_inline hlslpp_enable_if_return(T, float2) operator - (const float2& f1, T f2) { return f1 - float2(f2); }
 	template<typename T> hlslpp_inline hlslpp_enable_if_return(T, float3) operator - (const float3& f1, T f2) { return f1 - float3(f2); }
 	template<typename T> hlslpp_inline hlslpp_enable_if_return(T, float4) operator - (const float4& f1, T f2) { return f1 - float4(f2); }
+
+	hlslpp_inline float2 operator - (const float2& f, const int2& i) { return f - float2(i); }
+	hlslpp_inline float2 operator - (const int2& i, const float2& f) { return float2(i) - f; }
 
 	template<typename T> hlslpp_inline hlslpp_enable_if_return(T, float1) operator - (T f1, const float1& f2) { return float1(f1) - f2; }
 	template<typename T> hlslpp_inline hlslpp_enable_if_return(T, float2) operator - (T f1, const float2& f2) { return float2(f1) - f2; }

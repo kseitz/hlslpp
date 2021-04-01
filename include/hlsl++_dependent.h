@@ -81,4 +81,7 @@ namespace hlslpp
 	hlslpp_inline int2 asint(const float2 & v) { return (int2&)v; }
 	hlslpp_inline int3 asint(const float3 & v) { return (int3&)v; }
 	hlslpp_inline int4 asint(const float4 & v) { return (int4&)v; }
+
+
+	hlslpp_inline int2 operator + (const uint2& i1, const int2& i2) { return int2(i1.u32[0], i1.u32[1]) + i2; }
 }
