@@ -790,6 +790,10 @@ namespace hlslpp
 
 		hlslpp_inline float2(const uint2& i);
 
+		hlslpp_inline float2(const FVector2D& fv) { f32[0] = fv.X; f32[1] = fv.Y; }
+
+		hlslpp_inline float2(const FIntPoint& fv) { f32[0] = fv.X; f32[1] = fv.Y; }
+
 		union
 		{
 			n128 vec;
@@ -954,6 +958,7 @@ namespace hlslpp
 	hlslpp_inline float2& operator *= (float2& f1, const float2& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float3& operator *= (float3& f1, const float3& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float4& operator *= (float4& f1, const float4& f2) { f1 = f1 * f2; return f1; }
+	hlslpp_inline float4& operator *= (float4& f1, const uint1& f2) { f1 = f1 * f2; return f1; }
 
 	hlslpp_inline float1& operator /= (float1& f1, const float1& f2) { f1 = f1 / f2; return f1; }
 	hlslpp_inline float2& operator /= (float2& f1, const float2& f2) { f1 = f1 / f2; return f1; }
