@@ -327,6 +327,7 @@ namespace hlslpp
 		template<int X, int Y> hlslpp_inline uint2(const uswizzle2<X, Y>& s) : vec(s.template swizzle<X, Y, 0, 1>()) {}
 
 		explicit hlslpp_inline uint2(const int2& i) { u32[0] = i.i32[0]; u32[1] = i.i32[1]; }
+		explicit hlslpp_inline uint2(const float2& f) { u32[0] = f.f32[0]; u32[1] = f.f32[1]; }
 
 		union
 		{

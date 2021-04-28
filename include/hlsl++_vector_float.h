@@ -867,6 +867,8 @@ namespace hlslpp
 
 		hlslpp_inline float4(const uint4& i);
 
+		hlslpp_inline float4(const FVector4& fv) { f32[0] = fv.X; f32[1] = fv.Y; f32[2] = fv.Z; f32[3] = fv.W; }
+
 		union
 		{
 			n128 vec;
