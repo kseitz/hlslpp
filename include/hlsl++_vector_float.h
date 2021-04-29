@@ -959,6 +959,7 @@ namespace hlslpp
 	hlslpp_inline float3& operator *= (float3& f1, const float3& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float4& operator *= (float4& f1, const float4& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float4& operator *= (float4& f1, const uint1& f2) { f1 = f1 * f2; return f1; }
+	hlslpp_inline float4& operator *= (float4& f1, const float& f2) { f1 = f1 * float1(f2); return f1; }
 
 	hlslpp_inline float1& operator /= (float1& f1, const float1& f2) { f1 = f1 / f2; return f1; }
 	hlslpp_inline float2& operator /= (float2& f1, const float2& f2) { f1 = f1 / f2; return f1; }
