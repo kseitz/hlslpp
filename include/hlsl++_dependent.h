@@ -16,6 +16,8 @@ namespace hlslpp
 
 	float4::float4(const uint4& i) : vec(_hlslpp_cvtepu32_ps(i.vec)) {}
 
+	int3::int3(const uint3& u) { i32[0] = u.u32[0]; i32[1] = u.u32[1]; i32[2] = u.u32[2]; }
+
 	hlslpp_inline float3x3::float3x3(const quaternion& q)
 	{
 		_hlslpp_quat_to_3x3_ps(q.vec, vec0, vec1, vec2);
@@ -84,4 +86,6 @@ namespace hlslpp
 
 
 	hlslpp_inline int2 operator + (const uint2& i1, const int2& i2) { return int2(i1.u32[0], i1.u32[1]) + i2; }
+	template<int X> hlslpp_inline int1 operator * (const uswizzle1<X>& s, const int i) { return int1(s) * i; }
+	template<int X> hlslpp_inline uint1 operator * (const uswizzle1<X>& s, const unsigned int i) { return uint1(s) * i; }
 }

@@ -354,6 +354,8 @@ namespace hlslpp
 		template<int X, int Y, int Z>
 		hlslpp_inline int3(const iswizzle3<X, Y, Z>& s) : vec(s.template swizzle<X, Y, Z, 0, 1, 2>()) {}
 
+		hlslpp_inline int3(const uint3& u);
+
 		union
 		{
 			n128i vec;
